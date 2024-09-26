@@ -11,12 +11,15 @@ export default function App() {
     <>
       <View>
         <Navbar />
-        <Marquee />    
       </View>
 
       <Stack.Navigator initialRouteName="Aziz Mart">
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Aziz Mart" component={BottomTab} />
+        <Stack.Screen
+          name="Aziz Mart"
+          component={BottomTab}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </>
   );

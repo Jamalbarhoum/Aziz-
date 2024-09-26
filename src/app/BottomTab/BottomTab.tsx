@@ -3,16 +3,16 @@ import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../Home/Home';
-// شاشات مختلفة (الصفحة الرئيسية، السلة، حالة الطلبات، الحساب الشخصي)
 
+import CartScreen from "../card/CartScreen"
 
-function CartScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Cart Screen</Text>
-    </View>
-  );
-}
+// function CartScreen() {
+//   return (
+//     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Text>Cart Screen</Text>
+//     </View>
+//   );
+// }
 
 function OrderStatusScreen() {
   return (

@@ -1,6 +1,7 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
 import IconLiked from "react-native-vector-icons/FontAwesome";
+import MarqueeExample from "../Marquee/Marquee";
 const Navbar = () => {
   return (
     <View>
@@ -23,6 +24,7 @@ const Navbar = () => {
         <IconLiked name="" size={30} color="#000" />
         
       </View>
+      <MarqueeExample/>
     </View>
   );
 };

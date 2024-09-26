@@ -285,12 +285,6 @@ const Recommended = () => {
 
 
 
-
-
-
-
-
-
   const [showSwipeText, setShowSwipeText] = useState(true);
   const [cartItems, setCartItems] = useState({});
   const scrollViewRef = useRef(null);

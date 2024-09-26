@@ -363,6 +363,7 @@ const Offers = () => {
         <Animated.View
           style={{
             flexDirection: "row",
+         
             transform: [{ translateX: scrollX }],
           }}
         >
@@ -382,52 +383,7 @@ const Offers = () => {
             </View>
           ))}
           {/* تكرار العناصر لجعل التمرير سلساً */}
-          {Array.from({ length: 10 }).map((_, index) => (
-            <View key={index + 10} style={styles.box}>
-              <Image
-                resizeMode="contain"
-                style={styles.image}
-                source={{
-                  uri: "https://cdn.arabsstock.com/uploads/images/96171/image-96171-close-up-uncooked-chicken-breast-pieces-wild-herbs-lemon-s-thumbnail.webp",
-                }}
-              />
-              <Text style={styles.text}>Chicken {index + 1}</Text>
-              <View style={styles.offerLabel}>
-                <Text style={styles.offerLabelText}>Offers</Text>
-              </View>
-            </View>
-          ))}
-          {/* تكرار العناصر لجعل التمرير سلساً */}
-          {Array.from({ length: 10 }).map((_, index) => (
-            <View key={index + 20} style={styles.box}>
-              <Image
-                resizeMode="contain"
-                style={styles.image}
-                source={{
-                  uri: "https://cdn.arabsstock.com/uploads/images/96171/image-96171-close-up-uncooked-chicken-breast-pieces-wild-herbs-lemon-s-thumbnail.webp",
-                }}
-              />
-              <Text style={styles.text}>Chicken {index + 1}</Text>
-              <View style={styles.offerLabel}>
-                <Text style={styles.offerLabelText}>Offers</Text>
-              </View>
-            </View>
-          ))}
-          {Array.from({ length: 10 }).map((_, index) => (
-            <View key={index + 30} style={styles.box}>
-              <Image
-                resizeMode="contain"
-                style={styles.image}
-                source={{
-                  uri: "https://cdn.arabsstock.com/uploads/images/96171/image-96171-close-up-uncooked-chicken-breast-pieces-wild-herbs-lemon-s-thumbnail.webp",
-                }}
-              />
-              <Text style={styles.text}>Chicken {index + 1}</Text>
-              <View style={styles.offerLabel}>
-                <Text style={styles.offerLabelText}>Offers</Text>
-              </View>
-            </View>
-          ))}
+  
         </Animated.View>
       </ScrollView>
     </View>
@@ -436,7 +392,8 @@ const Offers = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
+   
+    marginTop: 30,
     height: 250,
     justifyContent: "center",
     alignItems: "center",
@@ -445,8 +402,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 10,
     color: "#333",
+
   },
   marqueeContainer: {
+    
     width: width,
     overflow: "hidden",
   },
@@ -458,6 +417,8 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   image: {
+    borderWidth:2,
+    borderColor:"rgb(160,215,235)",
     width: 150,
     height: 150,
   },
