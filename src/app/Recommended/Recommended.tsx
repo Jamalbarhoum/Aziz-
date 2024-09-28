@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef ,useContext } from "react";
 import {
   View,
   Text,
@@ -11,283 +11,118 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const { width } = Dimensions.get("window");
-
+import { CartContext } from '../CartProvider';
 const Recommended = () => {
 
+  const { cartItems, setCartItems } = useContext(CartContext);
   const [data, setDate] = useState([
     {
+      id: 16,
+      description: "drinks",
+      price:3.99,
+      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
+    },
+    {
+      id: 15,
       description: "Chips",
+      price:3.99,
       imageUrl:
         "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
     },
     {
+      id: 14,
       description: "Chocolate",
+      price:3.99,
       imageUrl:
         "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
     },
     {
+      id: 13,
       description: "drinks",
+      price:3.99,
       imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
     },
     {
+      id: 12,
       description: "Chips",
+      price:3.99,
       imageUrl:
         "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
     },
     {
+      id: 10,
       description: "Chocolate",
+      price:3.99,
       imageUrl:
         "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
     },
     {
+      id: 11,
       description: "drinks",
+      price:3.99,
       imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
     },
     {
+      id: 9,
       description: "Chips",
+      price:3.99,
       imageUrl:
         "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
     },
     {
+      id: 8,
       description: "Chocolate",
+      price:3.99,
       imageUrl:
         "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
     },
     {
+      id: 7,
       description: "drinks",
+      price:3.99,
       imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
     },
     {
+      id: 6,
       description: "Chips",
+      price:3.99,
       imageUrl:
         "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
     },
     {
+      id: 4,
       description: "Chocolate",
+      price:3.99,
       imageUrl:
         "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
     },
     {
+      id: 5,
       description: "drinks",
+      price:3.99,
       imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
     },
     {
+      id: 2,
       description: "Chips",
+      price:3.99,
       imageUrl:
         "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
     },
     {
-      description: "Chocolate",
+      id: 1,
+      description: "Chocolate Chocolate Chocolate Chocolate Chocolate",
+      price:3.99,
       imageUrl:
         "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
     },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
-    {
-      description: "Chips",
-      imageUrl:
-        "https://zouqsweet.com/storage/d03239ce-6f3a-4155-84af-a2a9e869e42a-300x300.jpeg",
-    },
-    {
-      description: "Chocolate",
-      imageUrl:
-        "https://sc01.alicdn.com/kf/UTB8HrDiGyaMiuJk43PTq6ySmXXai/Milka-Chocolate-100g-All-Flavors-Available.jpg",
-    },
-    {
-      description: "drinks",
-      imageUrl: "https://m.media-amazon.com/images/I/614olGRSMVL.jpg",
-    },
+    
   ]);
 
-
-
   const [showSwipeText, setShowSwipeText] = useState(true);
-  const [cartItems, setCartItems] = useState({});
+
   const scrollViewRef = useRef(null);
+  console.log(cartItems);
 
   const handleScroll = (event) => {
     const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent;
@@ -303,36 +138,45 @@ const Recommended = () => {
     setShowSwipeText(false);
   };
 
-  const handleAddToCart = (index) => {
-    setCartItems((prevCartItems) => ({
-      ...prevCartItems,
-      [index]: (prevCartItems[index] || 0) + 1,
-    }));
-  };
-
-  const handleRemoveFromCart = (index) => {
+  const handleAddToCart = (item) => {
     setCartItems((prevCartItems) => {
-      const newCount = (prevCartItems[index] || 0) - 1;
-      if (newCount <= 0) {
-        const { [index]: _, ...rest } = prevCartItems;
-        return rest;
+      const itemIndex = prevCartItems.findIndex((cartItem) => cartItem.id === item.id);
+      if (itemIndex !== -1) {
+        const updatedCart = [...prevCartItems];
+        updatedCart[itemIndex].quantity += 1;
+        return updatedCart;
+      } else {
+        return [...prevCartItems, { ...item, quantity: 1 }];
       }
-      return { ...prevCartItems, [index]: newCount };
+    });
+  };
+  
+  const handleRemoveFromCart = (item) => {
+    setCartItems((prevCartItems) => {
+      const itemIndex = prevCartItems.findIndex((cartItem) => cartItem.id === item.id);
+      if (itemIndex !== -1) {
+        const updatedCart = [...prevCartItems];
+        if (updatedCart[itemIndex].quantity > 1) {
+          updatedCart[itemIndex].quantity -= 1;
+        } else {
+          updatedCart.splice(itemIndex, 1);
+        }
+        return updatedCart;
+      }
+      return prevCartItems;
     });
   };
 
-  const handleRemoveItem = (index) => {
+  const handleRemoveItem = (item) => {
     setCartItems((prevCartItems) => {
-      const { [index]: _, ...rest } = prevCartItems;
-      return rest;
+      const updatedCart = prevCartItems.filter((cartItem) => cartItem.id !== item.id);
+      return updatedCart;
     });
   };
 
   return (
     <>
-   
       <View style={styles.container}>
-     
         <View style={styles.shopByCategory}>
           <Text style={styles.textSm}>Recommended For You</Text>
           {showSwipeText && (
@@ -352,53 +196,63 @@ const Recommended = () => {
           scrollEventThrottle={16}
           ref={scrollViewRef}
         >
-          {data.map((elm, index) => (
-            <View key={index} style={styles.box1Category}>
-              <View style={styles.boxBackground}>
-                <Image
-                  resizeMode="contain"
-                  style={styles.boxedText}
-                  source={{
-                    uri: elm.imageUrl,
-                  }}
-                />
-                <Text style={styles.text}>{elm.description}{index + 1}</Text>
-                <TouchableOpacity
-                  style={styles.addButton}
-                  onPress={() => handleAddToCart(index)}
-                >
-                  <Text style={styles.addButtonText}>+</Text>
-                </TouchableOpacity>
-                {cartItems[index] > 0 && (
-                  <View style={styles.cartContainer}>
-                    <Text style={styles.cartQuantity}>{cartItems[index]}</Text>
-                    <TouchableOpacity
-                      style={styles.removeButton}
-                      onPress={() => handleRemoveFromCart(index)}
-                    >
-                      <Text style={styles.removeButtonText}>-</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                      style={styles.removeItemButton}
-                      onPress={() => handleRemoveItem(index)}
-                    >
-                      <Text style={styles.removeItemText}>Remove</Text>
-                    </TouchableOpacity>
-                  </View>
-                )}
-              </View>
-            </View>
-          ))}
+       {data.map((elm, index) => (
+  <View style={styles.box1Category} key={elm.id}>
+    <View style={styles.boxBackground}>
+      <Image
+        resizeMode="contain"
+        style={styles.boxedText}
+        source={{ uri: elm.imageUrl }}
+      />
+     
+      
+      <TouchableOpacity
+        style={styles.addButton}
+        onPress={() => handleAddToCart(elm)}
+      >
+        <Text style={styles.addButtonText}>+</Text>
+      </TouchableOpacity>
+
+      {cartItems.find((cartItem) => cartItem.id === elm.id) && (
+        <View style={styles.cartContainer}>
+          <Text style={styles.cartQuantity}>
+            {cartItems.find((cartItem) => cartItem.id === elm.id)?.quantity}
+          </Text>
+
+          <TouchableOpacity
+            style={styles.removeButton}
+            onPress={() => handleRemoveFromCart(elm)}
+          >
+            <Text style={styles.removeButtonText}>-</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.removeItemButton}
+            onPress={() => handleRemoveItem(elm)}
+          >
+            <Text style={styles.removeItemText}>Remove</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+    </View>
+    {/* السعر تحت الوصف خارج الصندوق */}
+    <Text style={styles.priceText} ><Text style={{color:"#0129",fontWeight:"normal"}}>JD</Text> {elm.price.toFixed(2)}</Text>
+    <Text style={styles.descriptionText} numberOfLines={2}>{elm.description}</Text>
+
+  </View>
+))}
+
         </ScrollView>
       </View>
     </>
   );
-};
+}  
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 10,
-    height: 300,
+    flex: 1,
+    marginTop: 20,
+    height: 400,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -431,27 +285,25 @@ const styles = StyleSheet.create({
   },
   containerCategory: {
     alignItems: "center",
+  
   },
   box1Category: {
     width: width / 2.5,
+    height:"120%",
+   
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
     position: "relative",
   },
   boxBackground: {
+   
     width: "100%",
     height: 180,
-    borderRadius: 12,
+    borderWidth :1,
+    borderRadius:5,
+    borderColor:"gray",
     backgroundColor: "#fff",
-    borderWidth: 2,
-    borderColor: "rgba(0, 0, 0, 0.1)",
-    overflow: "hidden",
-    elevation: 4,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
@@ -528,6 +380,23 @@ const styles = StyleSheet.create({
     color: "#f00",
     fontSize: 12,
     fontWeight: "bold",
+  },
+  priceText: {
+    fontSize: 16, // حجم الخط
+    color: '#000', // لون الخط (يمكن تغييره حسب الحاجة)
+    marginTop: 5, // مسافة فوق السعر
+    fontWeight: 'bold', // جعل السعر عريضًا
+  },
+  descriptionText: {
+    fontSize: 14,
+    color: '#333',
+    textAlign: 'center',
+    height:"100%",
+    marginTop: 5,
+    marginBottom: 10,
+    paddingHorizontal: 5,
+    maxHeight: 40, // تحديد الحد الأقصى للارتفاع
+    overflow: 'hidden', // إخفاء المحتوى الزائد
   },
 });
 
