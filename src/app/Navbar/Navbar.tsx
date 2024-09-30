@@ -2,7 +2,9 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import IconLiked from "react-native-vector-icons/FontAwesome";
 import MarqueeExample from "../Marquee/Marquee";
+import { useNavigation } from "@react-navigation/native"; 
 const Navbar = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <View
@@ -22,6 +24,7 @@ const Navbar = () => {
           source={require("../../Public/WhatsApp Image 2024-09-08 at 11.39.34 AM.jpeg")}
         />
         <IconLiked name="" size={30} color="#000" />
+        
         
       </View>
       <MarqueeExample/>
