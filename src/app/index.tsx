@@ -16,12 +16,19 @@ import {
   ResetPasswordScreen,
   HomeScreen,
 } from "./LoginAndReg/screens";
-
+import StripeApp from "./Stripe/StripeApp"
+import { StripeProvider } from "@stripe/stripe-react-native";
 const Stack = createStackNavigator();
 
 const index = () => {
   return (
       <>
+        {/*
+        طريقه الدفع 
+        <StripeProvider publishableKey="pk_test_51Q4InUD6MrN6QKBjcrum7iqbc97jqvtpOD6mvgU2PudPhjTp2bzlWOaXbrT7Kjh1vsY33GZ7q9UrrKThCHR3mSh2005h8Ggj4q">
+      <StripeApp />
+    </StripeProvider> */}
+
     <CartProvider>
       <Provider theme={theme}>
      
@@ -43,9 +50,6 @@ const index = () => {
 
       </Provider>
     </CartProvider>
-      {/* <CartProvider>
-        <App/>
-        </CartProvider> */}
       </>
   );
 };

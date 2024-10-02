@@ -16,8 +16,66 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 // import React from 'react';
 // import { Button } from 'react-native';
-import { Payment } from "react-native-payments";
-
+// import { Payment } from "react-native-payments";
+const OrderSummary = ({ items }) => {
+  return (
+    <View style={styles_OrderSummary.container}>
+      <Text style={styles_OrderSummary.header}>Order Summary</Text>
+      {items.map((item, index) => (
+        <View key={index} style={styles_OrderSummary.itemRow}>
+          <Text style={styles_OrderSummary.itemText}>
+            {item.price * item.quantity} JD  
+            <Text style={styles_OrderSummary.itemDescription}>   {item.description}</Text>
+          </Text>
+        </View>
+      ))}
+      <Text style={styles_OrderSummary.totalText}>
+        Total: {items.reduce((total, item) => total + (item.price * item.quantity), 0)} JD
+      </Text>
+    </View>
+  );
+};
+const styles_OrderSummary = StyleSheet.create({
+  container: {
+    padding: 20,
+    backgroundColor: '#fff',
+ 
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+  header: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#333',
+  },
+  itemRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  itemText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  itemDescription: {
+    fontSize: 14,
+    color: '#888',
+    fontStyle: 'italic',
+  },
+  totalText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+    textAlign: 'right',
+    color: '#2A9D8F',
+  },
+});
 const PaymentForm = () => {
   const [name, setName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -40,7 +98,7 @@ const PaymentForm = () => {
   return (
     <>
       <View style={stylesF.headerContainer}>
-        <Text style={styles.txt}>Payment methods</Text>
+        <Text style={styles_OrderSummary.header} >Payment methods</Text>
         <View style={stylesF.buttonContainer}>
           {toggle && (
             <Button
@@ -228,6 +286,7 @@ function CartScreen() {
 
   return (
     <View style={styles.container}>
+      <ScrollView>
       <View style={styles.containerViewCard}>
         {cartItems.length === 0 ? (
           <Text style={styles.emptyText}>Your cart is empty.</Text>
@@ -295,7 +354,14 @@ function CartScreen() {
           </View>
         </Modal>
       )}
-      {cartItems.length > 0 && <PaymentForm />}
+      {cartItems.length > 0 && <>
+        <OrderSummary items={cartItems} />
+        <PaymentForm />
+      
+        
+      
+      </> }
+      </ScrollView>
     </View>
   );
 }
