@@ -13,10 +13,74 @@ import { emailValidator } from "../helpers/emailValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
 import { nameValidator } from "../helpers/nameValidator";
 
+import axios from "axios"
 export default function RegisterScreen({ navigation }) {
   const [name, setName] = useState({ value: "", error: "" });
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
+
+
+  const loginAndRegister = (data) => {
+    console.log("data");
+    // console.log({ name: name.value, email: email.value, password: password.value });
+    console.log(data.password);
+
+
+
+    axios
+      .post("http://172.20.10.2:3000/users/register", {
+        username: data.name,
+        email: data.email,
+        password_hash: data.password
+      })
+      .then((res) => {
+        axios
+          .post("http://172.20.10.2:3000/users/login", {
+            email: email,
+            password: password,
+          })
+          .then((res) => {
+
+            console.log(res.data);
+            navigation.reset({
+              index: 0,
+              routes: [{ name: "HomeScreen" }],
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+
+
+          });
+      })
+      .catch((err) => {
+        if (
+          err.response.data.message === "The email or username already exists"
+        ) {
+          axios
+            .post("http://172.20.10.2:3000/users/login", {
+              email: email,
+              password: password,
+            })
+            .then((res) => {
+
+              console.log(res.data);
+
+              navigation.reset({
+                index: 0,
+                routes: [{ name: "HomeScreen" }],
+              });
+
+            })
+            .catch((err) => {
+              console.log(err);
+
+            });
+        } else {
+          console.log(err);
+        }
+      });
+  };
 
   const onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
@@ -26,12 +90,13 @@ export default function RegisterScreen({ navigation }) {
       setName({ ...name, error: nameError });
       setEmail({ ...email, error: emailError });
       setPassword({ ...password, error: passwordError });
+
       return;
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "HomeScreen" }],
-    });
+    loginAndRegister({ name: name.value, email: email.value, password: password.value });
+    console.log({ name: name.value, email: email.value, password: password.value });
+
+
   };
 
   return (

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { Text } from "react-native-paper";
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Background from "../components/Background";
 import Logo from "../components/Logo";
 import Header from "../components/Header";
@@ -12,9 +12,60 @@ import { theme } from "../core/theme";
 import { emailValidator } from "../helpers/emailValidator";
 import { passwordValidator } from "../helpers/passwordValidator";
 
+import axios from "axios";
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({ value: "", error: "" });
+ const [token, setToken] =useState(null)
+  // const login = async () => {
+  //   // في الواقع، يمكنك الحصول على رمز الجلسة بعد تسجيل الدخول من الخادم
+  
+  //   await AsyncStorage.setItem('userToken', token);
+
+  // };
+
+
+
+
+
+  const loginAndRegister = (data) => {
+    console.log("data");
+    // console.log({ name: name.value, email: email.value, password: password.value });
+    console.log(data.password);
+
+        axios
+          .post("http://172.20.10.2:3000/users/login", {
+            email: email,
+            password: password,
+          })
+          .then((res) => {
+            // login(res.data.token)
+            console.log(res.data.token);
+            setToken(res.data.token)
+        
+            navigation.reset({
+              index: 0,
+              routes: [{ name: "HomeScreen" }],
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+
+
+          });
+      }
+     
+
+
+
+
+
+
+
+
+
+
+
 
   const onLoginPressed = () => {
     const emailError = emailValidator(email.value);
@@ -24,10 +75,8 @@ export default function LoginScreen({ navigation }) {
       setPassword({ ...password, error: passwordError });
       return;
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "HomeScreen" }],
-    });
+    loginAndRegister({email:email.value, password:password.value})
+ 
   };
 
   return (
