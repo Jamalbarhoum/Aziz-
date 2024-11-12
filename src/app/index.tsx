@@ -33,7 +33,7 @@ const index = () => {
       <Provider theme={theme}>
      
           <Stack.Navigator
-            initialRouteName="StartScreen"
+            initialRouteName="HomeScreen"
             screenOptions={{
               headerShown: false,
             }}

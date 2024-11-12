@@ -6,10 +6,15 @@ import Marquee from "./Marquee/Marquee";
 import { View,Button } from "react-native";
 import { CartProvider } from "./CartProvider"; 
 import { useNavigation } from "@react-navigation/native"; 
+// ProductsScreen
+import ProductsScreen from "./ProductsScreen/ProductsScreen"
 const Stack = createStackNavigator(); // تعريف المتغير Stack
 
 export default function App() {
   const navigation = useNavigation();
+
+
+
   return (
     <>
       <View>
@@ -20,7 +25,7 @@ export default function App() {
 
     <Stack.Navigator initialRouteName="Aziz Mart">
         <Stack.Screen name="Home" component={Home} />
- 
+        <Stack.Screen name="ProductsScreen" component={ProductsScreen} options={{ title: "Products" }} />
         <Stack.Screen
           name="Aziz Mart"
           component={BottomTab}
